@@ -11,6 +11,8 @@ A simple internal War Thunder sig scanner and offset dumper.
 - [x] cLocalPlayer
 - [x] cPlayerList
 
+## Note
+Please note that this project requires that EAC is disabled, which can be done by using the War Thunder standalone lanucher. Said launcher can be accessed by running <code>launcher.exe</code> within the War Thunder directory. Any attempt to use this with EAC enabled <b>WILL</b> result in a permanent ban.
 ## Usage
 ### Cloning
 Git is required in order to clone a github repository. You can find a download to git on their official website <a href="https://git-scm.com/">here</a>.
