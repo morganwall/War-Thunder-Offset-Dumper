@@ -1,5 +1,8 @@
 # War-Thunder-Offset-Dumper
 A simple internal War Thunder sig scanner and offset dumper.
+## Credit
+Credit to [cazzwastaken](https://github.com/cazzwastaken) for the pattern scan function from his [crashed](https://github.com/cazzwastaken/crashed) repo.
+I may rewrite it at somepoint, though I saw no reason to do so at the time.
 ## Dumping
 ### Addresses
 - [x] Base
