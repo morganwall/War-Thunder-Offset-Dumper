@@ -90,20 +90,23 @@ DWORD WINAPI MainThread(HMODULE hModule)
     uintptr_t moduleBase = (uintptr_t)GetModuleHandle("aces.exe");
     uintptr_t cGame = (GetOffset<std::uintptr_t>(get("48 8B 05 ? ? ? ? F2 0F 10 4F 08"), 0x3));
     uintptr_t cLocalPlayer = (GetOffset<std::uintptr_t>(get("48 8B 05 ? ? ? ? B1 FF 48 85 C0 74 03 8A 48 08 88 4C 24 42 48 8D 05 ? ? ? ? 48 89 44 24 28 48 8D 4C 24 28 B2 FF E8 ? ? ? ? 48 8D 3D"), 0x3));
-    uintptr_t cPlayerList = (GetOffset<std::uintptr_t>(get("48 8B 1D ? ? ? ? 48 85 DB 0F 84 89 04 00 00"), 0x3));
+    //uintptr_t cPlayerList = (GetOffset<std::uintptr_t>(get("48 8B 1D ? ? ? ? 48 85 DB 0F 84 89 04 00 00"), 0x3));
 
     cout << "Addresses:\n";
     cout << "Base:         0x" << std::hex << std::uppercase << moduleBase << "\n";
     cout << "cGame:        0x" << std::hex << std::uppercase << cGame << "\n";
     cout << "cLocalPlayer: 0x" << std::hex << std::uppercase << cLocalPlayer << "\n";
-    cout << "cPlayerList:  0x" << std::hex << std::uppercase << cPlayerList << "\n";
+    //cout << "cPlayerList:  0x" << std::hex << std::uppercase << cPlayerList << "\n";
 
     cout << "-----------------------------------------------------\n";
 
     cout << "Offsets:\n";
     cout << "cGame:        0x" << std::hex << std::uppercase << cGame - moduleBase << "\n";
     cout << "cLocalPlayer: 0x" << std::hex << std::uppercase << cLocalPlayer - moduleBase << "\n";
-    cout << "cPlayerList:  0x" << std::hex << std::uppercase << cPlayerList - moduleBase << "\n";
+    cout << "cPlayerList:  0x" << std::hex << std::uppercase << (cLocalPlayer - 0xE0) - moduleBase << "\n"; // This is a temp fix until I make a new sig for it.
+    //cout << "cPlayerList:  0x" << std::hex << std::uppercase << cPlayerList - moduleBase << "\n";
+
+    cout << "-----------------------------------------------------\n";
 
     cout << "Press Delete to Exit Without Closing the Game.\n";
     while (true)
