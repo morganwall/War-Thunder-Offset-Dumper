@@ -86,11 +86,11 @@ DWORD WINAPI MainThread(HMODULE hModule)
     freopen_s(&f, "CONOUT$", "w", stdout);
 
     cout << "War Thunder Offset Dumper by morganlewiswall.\n\n";
-
+	
     uintptr_t moduleBase = (uintptr_t)GetModuleHandle("aces.exe");
-    uintptr_t cGame = (GetOffset<std::uintptr_t>(get("48 8B 05 ? ? ? ? F2 0F 10 4F 08"), 0x3));
-    uintptr_t cLocalPlayer = (GetOffset<std::uintptr_t>(get("48 8B 05 ? ? ? ? B1 FF 48 85 C0 74 03 8A 48 08 88 4C 24 42 48 8D 05 ? ? ? ? 48 89 44 24 28 48 8D 4C 24 28 B2 FF E8 ? ? ? ? 48 8D 3D"), 0x3));
-    uintptr_t cPlayerList = (GetOffset<std::uintptr_t>(get("4C 8B 05 ? ? ? ? 4D 85 C0 0F 84 CC 00 00 00"), 0x3));
+    uintptr_t cGame = (GetOffset<std::uintptr_t>(get("48 8b 0d ? ? ? ? 48 8b 01 ff 50 ? 48 85 ed 74 ? 0f 31"), 0x3));
+    uintptr_t cLocalPlayer = (GetOffset<std::uintptr_t>(get("48 8b 15 ? ? ? ? 48 85 d2 74 ? 41 ba ? ? ? ? f6 82 ? ? ? ? ? 75"), 0x3));
+    uintptr_t cPlayerList = (GetOffset<std::uintptr_t>(get("48 8b 0d ? ? ? ? 89 c0 48 8b 1c c1 48 85 db 74 ? 48 8b 05"), 0x3));
 
     cout << "Addresses:\n";
     cout << "Base:         0x" << std::hex << std::uppercase << moduleBase << "\n";
@@ -129,4 +129,3 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
     }
     return TRUE;
 }
-
