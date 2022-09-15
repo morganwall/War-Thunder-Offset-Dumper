@@ -15,7 +15,9 @@ I may rewrite it at somepoint, though I saw no reason to do so at the time.
 - [x] cPlayerList
 
 ## Note
-Please note that this project requires that EAC is disabled, which can be done by using the War Thunder standalone lanucher. Said launcher can be accessed by running <code>launcher.exe</code> within the War Thunder directory. Any attempt to use this with EAC enabled <b>WILL</b> result in a permanent ban.
+Please note that this project requires that EAC is disabled. Any attempt to use this with EAC enabled <b>WILL</b> most likely result in a permanent ban.
+### Launching Without EAC
+You can launch War Thunder without EAC using the standalone launcher, <code>launcher.exe</code>, which can be found in the War Thunder directory.
 ## Usage
 ### Cloning
 Git is required in order to clone a github repository. You can find a download to git on their official website <a href="https://git-scm.com/">here</a>.
