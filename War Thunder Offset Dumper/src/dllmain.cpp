@@ -88,7 +88,7 @@ DWORD WINAPI MainThread(HMODULE hModule)
     cout << "War Thunder Offset Dumper by morganlewiswall.\n\n";
 	
     uintptr_t moduleBase = (uintptr_t)GetModuleHandle("aces.exe");
-    uintptr_t cGame = (GetOffset<std::uintptr_t>(get("48 8D 0D ? ? ? ? 48 8B 01 FF 50 ? 48 85 ED 74 ? 0F 31"), 0x3));
+    uintptr_t cGame = (GetOffset<std::uintptr_t>(get("48 8B 0D ? ? ? ? 48 8B 01 FF 50 ? 48 85 ED 74 ? 0F 31"), 0x3));
     uintptr_t cLocalPlayer = (GetOffset<std::uintptr_t>(get("48 8B 15 ? ? ? ? 48 85 D2 74 ? 41 BA ? ? ? ? F6 82 ? ? ? ? ? 75"), 0x3));
     uintptr_t cPlayerList = (GetOffset<std::uintptr_t>(get("48 8B 0D ? ? ? ? 89 C0 48 8B 1C C1 48 85 DB 74 ? 48 8B 05"), 0x3));
 
