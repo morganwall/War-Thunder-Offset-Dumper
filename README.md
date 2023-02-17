@@ -16,6 +16,7 @@ I may rewrite it at somepoint, though I saw no reason to do so at the time.
 
 ## Note
 Please note that this project requires that EAC is disabled. Any attempt to use this with EAC enabled <b>WILL</b> most likely result in a permanent ban.
+This project is also several months outdated, meaning that the signatures will need updating to work with the newest version of the game.
 ### Launching Without EAC
 You can launch War Thunder without EAC using the standalone launcher, <code>launcher.exe</code>, which can be found in the War Thunder directory.
 ## Usage
