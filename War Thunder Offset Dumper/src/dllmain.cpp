@@ -89,20 +89,22 @@ DWORD WINAPI MainThread(HMODULE hModule)
 	
     uintptr_t moduleBase = (uintptr_t)GetModuleHandle("aces.exe");
     uintptr_t cGame = (GetOffset<std::uintptr_t>(get("48 8B 05 ? ? ? ? F2 0F 10 4F 08"), 0x3));
-    uintptr_t cLocalPlayer = (GetOffset<std::uintptr_t>(get("48 8B 15 ? ? ? ? 48 85 D2 74 ? 41 BA ? ? ? ? F6 82 ? ? ? ? ? 75"), 0x3));
+    uintptr_t cLocalPlayer = (GetOffset<std::uintptr_t>(get("48 8B 2D ? ? ? ? 48 85 ED 74 ? F6 85 ? ? ? ? ? 74"), 0x3));
     //uintptr_t cPlayerList = (GetOffset<std::uintptr_t>(get("48 8B 0D ? ? ? ? 89 C0 48 8B 1C C1 48 85 DB 74 ? 48 8B 05"), 0x3));
-    uintptr_t cHud = (GetOffset<std::uintptr_t>(get("48 8B 0D ? ? ? ? 83 B9 ? ? ? ? ? 7C 4E"), 0x3));
-    uintptr_t cIsScoping = (GetOffset<std::uintptr_t>(get("88 0d ? ? ? ? 48 8b 05 ? ? ? ? 48 8b 80"), 0x2));
-    uintptr_t cScreenWidth = (GetOffset<std::uintptr_t>(get("89 05 ? ? ? ? 8b 0d ? ? ? ? 89 0d ? ? ? ? 8b 15 ? ? ? ? f3 0f 2a c2 f3 0f 11 05 ? ? ? ? 8b 35"), 0x2));
+    uintptr_t cViewMatrix = (GetOffset<std::uintptr_t>(get("48 8D 0D ? ? ? ? FF 15 ? ? ? ? 0F 28 05"), 0x3));
+    uintptr_t cHud = (GetOffset<std::uintptr_t>(get("48 8B 0D ? ? ? ? 80 B9 ? ? ? ? ? 0F 84 ? ? ? ? 80 BF"), 0x3));
+    uintptr_t IsScoping = (GetOffset<std::uintptr_t>(get("80 3D ? ? ? ? ? 75 ? 40 84 F6"), 0x2));
+    uintptr_t ScreenWidth = (GetOffset<std::uintptr_t>(get("89 05 ? ? ? ? 8B 0D ? ? ? ? 89 0D ? ? ? ? 8B 15 ? ? ? ? F3 0F 2A C2 F3 0F 11 05 ? ? ? ? 8B 35"), 0x2));
 
     cout << "Addresses:\n";
     cout << "Base:         0x" << std::hex << std::uppercase << moduleBase << "\n";
     cout << "cGame:        0x" << std::hex << std::uppercase << cGame << "\n";
     cout << "cLocalPlayer: 0x" << std::hex << std::uppercase << cLocalPlayer << "\n";
     //cout << "cPlayerList:  0x" << std::hex << std::uppercase << cPlayerList << "\n";
+    cout << "cViewMatrix:  0x" << std::hex << std::uppercase << cViewMatrix << "\n";
     cout << "cHud:         0x" << std::hex << std::uppercase << cHud << "\n";
-    cout << "cIsScoping:   0x" << std::hex << std::uppercase << cIsScoping << "\n";
-    cout << "cScreenWidth: 0x" << std::hex << std::uppercase << cScreenWidth << "\n";
+    cout << "cIsScoping:   0x" << std::hex << std::uppercase << IsScoping << "\n";
+    cout << "cScreenWidth: 0x" << std::hex << std::uppercase << ScreenWidth << "\n";
 
     cout << "-----------------------------------------------------\n";
 
@@ -110,9 +112,10 @@ DWORD WINAPI MainThread(HMODULE hModule)
     cout << "cGame:        0x" << std::hex << std::uppercase << cGame - moduleBase << "\n";
     cout << "cLocalPlayer: 0x" << std::hex << std::uppercase << cLocalPlayer - moduleBase << "\n";
     //cout << "cPlayerList:  0x" << std::hex << std::uppercase << cPlayerList - moduleBase << "\n";
+    cout << "cViewMatrix:  0x" << std::hex << std::uppercase << cViewMatrix - moduleBase << "\n";
     cout << "cHud:         0x" << std::hex << std::uppercase << cHud - moduleBase << "\n";
-    cout << "cIsScoping:   0x" << std::hex << std::uppercase << cIsScoping - moduleBase << "\n";
-    cout << "cScreenWidth: 0x" << std::hex << std::uppercase << cScreenWidth - moduleBase << "\n";
+    cout << "cIsScoping:   0x" << std::hex << std::uppercase << IsScoping - moduleBase << "\n";
+    cout << "cScreenWidth: 0x" << std::hex << std::uppercase << ScreenWidth - moduleBase << "\n";
     
     cout << "-----------------------------------------------------\n";
 
